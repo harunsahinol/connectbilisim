@@ -15,9 +15,10 @@
   --beyaz: #F5F6F7;
   --soluk: #AEB5BC;    /* koyu zemin üzerindeki ikincil metin */
 
-  --f-display: "Archivo", "Arial Black", sans-serif;
-  --f-body: "Onest", system-ui, sans-serif;
-  --f-mono: "Martian Mono", ui-monospace, monospace;
+  /* next/font değişkenleri layout.tsx'te <html> üzerinde tanımlanır */
+  --f-display: var(--font-archivo), "Arial Black", sans-serif;
+  --f-body: var(--font-onest), system-ui, sans-serif;
+  --f-mono: var(--font-martian), ui-monospace, monospace;
 
   --gutter: clamp(16px, 4vw, 64px);
   --maxw: 1440px;
@@ -183,7 +184,6 @@ a { color: inherit; }
   transition: opacity .9s ease;
 }
 #stage.is-ready { opacity: 1; }
-.no-webgl #stage { display: none; }
 
 /* ---------- Hero ---------- */
 
