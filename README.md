@@ -29,9 +29,19 @@ npm run lint
 - `src/components/stack/` — 3B sahne: `scene.ts` (three.js), `textures.ts` (katman yüzeylerindeki çizimler), `StackCanvas.tsx` (sahneyi sonradan yükleyen istemci bileşeni)
 - `src/lib/activeLayer.ts` — metin bölümü ile 3B sahnenin paylaştığı "aktif katman" durumu
 
-## Yayına alma
+## Yayına alma (Cloudflare Workers)
 
-Vercel'de repo içe aktarıldığında Next.js otomatik tanınır; ek ayar gerekmez.
+Site statik dışa aktarılır (`next.config.ts` → `output: "export"`); `npm run build` çıktısı `out/` klasörüne yazılır ve `wrangler.jsonc` bu klasörü Workers statik varlıkları olarak sunar.
+
+Cloudflare Workers Builds ayarları:
+
+- **Build command:** `npm run build`
+- **Deploy command:** `npx wrangler deploy`
+- **Non-production branch deploy command:** `npx wrangler versions upload`
+
+Yerelden elle yayın: `npm run build && npx wrangler deploy`
+
+Not: Statik dışa aktarımda sunucu tarafı özellikler (Route Handler, Server Action) çalışmaz. İletişim formu için sunucu gerektiğinde `@opennextjs/cloudflare` adaptörüne geçilebilir (Next 16.3.3+ destekli).
 
 ## Bekleyenler
 
